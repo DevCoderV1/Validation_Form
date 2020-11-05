@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(138, 226, 6);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form_wrapper {
+    background: white;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.blog_wrapper {
+    background: white;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.title_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.title_container h1 {
+    font-size: 48px;
+    font-family: "Pacifico", cursive;
+}
+
+.form_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input_container label {
+    font-size: 32px;
+    text-align: center;
+    margin: 10px;
+    font-family: "Pacifico", cursive;
+}
+
+.input_container input {
+    padding: 15px;
+    outline: none;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.text_field {
+    padding: 10px;
+    margin: 10px;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.button1 {
+    background: orange;
+    width: 150px;
+    margin: 20px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: "Pacifico", cursive;
+}
+
+@media screen and (max-width: 600px) {
+    .input_container label {
+        font-size: 24px;
+    }
+}
