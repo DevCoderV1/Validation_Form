@@ -75,6 +75,10 @@ function CheckAge(month, day, year) {
     return true
   }
   else {
+    alert("Invalid Birth Date")
+    Birth_Month.style.borderColor = "red"
+    Birth_Year.style.borderColor = "red"
+    Birth_Day.style.borderColor = "red"
     return false
   }
 }
