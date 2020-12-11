@@ -1,44 +1,80 @@
-const Fname = document.getElementById('fname')
-const Lname = document.getElementById('lname')
-const Email = document.getElementById('email')
-const Phone = document.getElementById('phone')
-const Mytext = document.getElementById('my_text')
-const Myform = document.getElementById('form')
-const Inputleng = document.querySelectorAll('input')
-const DisplayText = document.getElementById('displayText')
-
-Myform.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const FormCheck = CheckForm(Inputleng.length, Fname.value, Lname.value, Email.value, Phone.value, Mytext.value)
-    if (FormCheck) {
-        alert('You have been registered!')
+const firstName = document.getElementById("fname");
+const lastName = document.getElementById("lname");
+const Birth_Month = document.getElementById("birth_month");
+const Birth_Day = document.getElementById("birth_day");
+const Birth_Year = document.getElementById("birth_year");
+const Gender_Selection = document.getElementById("gender_type").value;
+const submit_btn = document.querySelector(".submit_btn");
+const CheckInput = document.querySelectorAll("input");
+const modal = document.querySelector(".popup_message_container")
+const close_modal = document.querySelector(".close_btn")
+const DaysOfMonths = [31, 28, 31, 20, 31, 30, 31, 31, 30, 31, 30, 31]
+const Today = new Date()
+// event when submit the form
+submit_btn.addEventListener("click", (e) => {
+  e.preventDefault()
+  let validInput = 0;
+  //check if all the inputs are fill in. If not, show which input needs to be fill
+  CheckInput.forEach((item) => {
+    if (item.value === "") {
+      item.style.borderColor = "red"
     } else {
-        alert('Please fill in the form with correct information.')
+      item.style.borderColor = "green"
+      validInput++
     }
 
+  });
+  if (validInput != CheckInput.length) {
+    alert("Please fill in the remaining blanks input")
+  } else {
+    let validName = CheckName(firstName.value, lastName.value)
+    let ValidBirth = CheckAge(Birth_Month.value, Birth_Month.value, Birth_Year.value)
+    if (validName && ValidBirth) {
+      modal.classList.add("open_message")
+    } else {
+      console.log("not working")
+    }
+
+  }
+
+});
+close_modal.addEventListener('click', () => {
+  modal.classList.remove("open_message")
+  location.reload()
 })
 
-function CheckForm(INPUT_LENGTH, FIRST, LAST, EMAIL, PHONE, MYTEXT) {
-    const NameReq = /^[A-Za-z]+$/;
-    const EmailReq = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    let count = 0;
-    if (FIRST !== '' && LAST !== '') {
-        if (NameReq.test(FIRST) && NameReq.test(LAST))
-            count = count + 1
-    }
-    if (EMAIL !== '') {
-        if (EmailReq.test(EMAIL))
-            count = count + 1
-    }
-    if (PHONE !== "" && PHONE.length == 10 && !isNaN(PHONE))
-        count = count + 1
-    if (MYTEXT !== '')
-        count = count + 1
+//check if first and last name contains any other special character
+function CheckName(first, last) {
+  const regex = /^[A-Za-z]+$/
+  if (first.match(regex) && last.match(regex)) {
+    return true
+  } else {
+    return false
+  }
 
-    if (count == INPUT_LENGTH)
-        return true
-    else
-        return false
+
+}
+
+function CheckAge(month, day, year) {
+  let LeapYear = CheckLeapYear(year)
+  if (LeapYear) {
+    DaysOfMonths[1] = 29
+  }
+  if ((month > 0 && month <= 12) && (day > 0 && day <= DaysOfMonths[month - 1]) && (year > 0 && year <= Today.getFullYear())) {
+
+    return true
+  }
+  else {
+    return false
+  }
+}
+
+
+function CheckLeapYear(year) {
+  if ((year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0)) {
+    return true
+  } else {
+    return false;
+  }
 }
 
