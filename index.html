@@ -17,11 +17,11 @@
             <div class="form_title">Validation Forms</div>
             <div class="info_box">
                 <div class="info_text">First Name:</div>
-                <input type="text" name="firstname" id="fname" />
+                <input type="text" name="firstname" id="fname" required />
             </div>
             <div class="info_box">
                 <div class="info_text">Last Name:</div>
-                <input type="text" name="lastname" id="lname" />
+                <input type="text" name="lastname" id="lname" required />
             </div>
             <div class="info_box">
                 <div class="info_text">Gender:</div>
@@ -33,9 +33,9 @@
             <div class="info_box">
                 <div class="info_text">Date Of Birth:</div>
                 <div class="birth_input_container">
-                    <input id="birth_month" type="number" size="1" maxlength="2" placeholder="01" /> /
-                    <input id="birth_day" type="number" size="3" maxlength="2" placeholder="01" /> /
-                    <input id="birth_year" type="number" size="3" maxlength="4" placeholder="2020" />
+                    <input id="birth_month" type="number" size="1" maxlength="2" placeholder="01" required /> /
+                    <input id="birth_day" type="number" size="3" maxlength="2" placeholder="01" required /> /
+                    <input id="birth_year" type="number" size="3" maxlength="4" placeholder="2020" required />
                 </div>
             </div>
             <div class="info_box">
@@ -51,7 +51,7 @@
     </div>
     <div class="popup_message_container">
         <div class="message_box">
-            <p class="message">Your Application is Complete!!!!</p>
+            <p class="message">Your Application is Complete!</p>
             <span class="close_btn">X</span>
         </div>
     </div>

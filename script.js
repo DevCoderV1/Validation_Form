@@ -46,12 +46,22 @@ close_modal.addEventListener('click', () => {
 //check if first and last name contains any other special character
 function CheckName(first, last) {
   const regex = /^[A-Za-z]+$/
-  if (first.match(regex) && last.match(regex)) {
+  let valid = 0;
+  if (first.match(regex)) {
+    valid++
+  } else {
+    firstName.style.borderColor = "red"
+  }
+  if (last.match(regex)) {
+    valid++
+  } else {
+    lastName.style.borderColor = "red"
+  }
+  if (valid == 2) {
     return true
   } else {
     return false
   }
-
 
 }
 

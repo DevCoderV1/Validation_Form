@@ -144,4 +144,7 @@ input::-webkit-inner-spin-button {
     .form .info_box input {
         font-size: 18px;
     }
+    .message_box p {
+        font-size: 24px;
+    }
 }
